@@ -24,12 +24,12 @@ public class ArrayListTest<E> {
     @DisplayName("Test add without insert place and get")
     @Test
     void add() {
-        list.add((E) "M");
-        assertEquals((E) "M",list.get(6));
-        list.add((E) "nn");
-        assertEquals((E) "nn",list.get(7));
-        list.add((E) "OP");
-        assertEquals((E) "OP",list.get(8));
+        list.add("M");
+        assertEquals( "M",list.get(6));
+        list.add("nn");
+        assertEquals("nn",list.get(7));
+        list.add( "OP");
+        assertEquals( "OP",list.get(8));
     }
     @DisplayName("Test add with insert place and get")
     @Test

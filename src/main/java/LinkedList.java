@@ -52,7 +52,7 @@ public class LinkedList<E> implements List<E>, Iterator<E> {
     @Override
     public E remove(int index) {
         if (index < 0 || index > size) throw new IndexOutOfBoundsException();
-        E result = null;
+        E result;
         if (index == size-1) {
             result=(E)last.value;
             last = last.prev;
@@ -87,7 +87,7 @@ public class LinkedList<E> implements List<E>, Iterator<E> {
     @Override
     public E set(Object value, int index) {
         if (index < 0 || index > size) throw new IndexOutOfBoundsException();
-        E result = null;
+        E result;
         if (index == size) {
             result=(E)last.value;
             last.value = value;
@@ -171,16 +171,13 @@ public class LinkedList<E> implements List<E>, Iterator<E> {
         private Node<E> next;
         private Object value;
 
-        private Node() {
-        }
-
         public Node(Object value) {
             this.value = value;
         }
 
     }
     private Node<E> findByIndexRecursion(int index,Node<E> node,int current) {
-        Node<E>result = null;
+        Node<E>result;
         boolean isUp = ((double)size/2)>index;
         if ( (isUp && (current == index)) || ((!isUp && current == (size - index - 1)))) {
             if (node==null) {
@@ -201,13 +198,13 @@ public class LinkedList<E> implements List<E>, Iterator<E> {
     }
     @Override
     public String toString() {
-        String result="[";
+        StringBuilder result= new StringBuilder("[");
         cursor = first;
         while (hasNext()) {
-            result += next() + ",";
+            result.append(next()).append(",");
         }
-        result=result.substring(0,result.length()-1);
-        result += "]";
-        return result;
+        result = new StringBuilder(result.substring(0, result.length() - 1));
+        result.append("]");
+        return result.toString();
     }
 }
