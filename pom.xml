@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dshershen</groupId>
-    <artifactId>abstract-lessons</artifactId>
+    <artifactId>collections-lessons</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
