@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ArrayListTest<E> {
+public class ArrayListTest{
     public ArrayList<String> list;
     @BeforeEach
     void setUp() {

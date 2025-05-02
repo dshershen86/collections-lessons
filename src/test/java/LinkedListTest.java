@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class LinkedListTest<E> extends ArrayListTest<E> {
+class LinkedListTest extends ArrayListTest {
 
     public LinkedList<String> list;
 
@@ -29,11 +29,11 @@ class LinkedListTest<E> extends ArrayListTest<E> {
     @Test
     void add() {
         list.add( "M");
-        assertEquals((E) "M",list.get(6));
+        assertEquals( "M",list.get(6));
         list.add("nn");
-        assertEquals((E) "nn",list.get(7));
+        assertEquals("nn",list.get(7));
         list.add( "OP");
-        assertEquals((E) "OP",list.get(8));
+        assertEquals("OP",list.get(8));
     }
     @DisplayName("Test add with insert place and get")
     @Test
