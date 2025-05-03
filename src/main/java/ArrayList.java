@@ -3,12 +3,11 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-public class ArrayList<T> implements List<T>, Iterator<T> {
+public class ArrayList<T> implements List<T>, Iterable<T> {
     private Object[] elements;
     private static final int DEFAULT_CAPACITY = 10;
     private static final double GROW_UP = 1.5;
     private int size;
-    int cursor=0;
 
     public ArrayList() {
         this(DEFAULT_CAPACITY);
@@ -150,18 +149,32 @@ public class ArrayList<T> implements List<T>, Iterator<T> {
     }
 
     @Override
-    public boolean hasNext() {
-        return cursor!=size;
+    public Iterator<T> iterator() {
+        return new Iterator<>() {
+            private int cursor=0;
+            private boolean checkRemoved = true;
+
+            @Override
+            public boolean hasNext() {
+                return cursor!=size;
+            }
+
+            @Override
+            public T next() {
+                if (cursor >= size)
+                    throw new NoSuchElementException();
+                T result = (T) elements[cursor];
+                cursor++;
+                checkRemoved = false;
+                return result;
+            }
+
+            @Override
+            public void remove() {
+                if (checkRemoved) throw new IllegalStateException();
+                checkRemoved = true;
+                cursor--;
+            }
+        };
     }
-
-    @Override
-    public T next() {
-        if (cursor >= size)
-            throw new NoSuchElementException();
-        T result = (T)elements[cursor];
-        cursor++;
-        return result;
-
-    }
-
 }

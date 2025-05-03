@@ -266,7 +266,7 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
                 Node<E> nodeBefore = currentNode.prev;
                 currentNode.prev = currentNode.next;
                 currentNode.next = nodeBefore;
-                size--;
+
             }
         };
     }
