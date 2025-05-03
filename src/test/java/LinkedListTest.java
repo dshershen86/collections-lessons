@@ -58,7 +58,7 @@ class LinkedListTest extends ArrayListTest {
         assertEquals("A",list.get(0));
         assertEquals("C",list.get(2));
         assertEquals("E",list.get(5));
-        assertEquals(null,list.get(6));
+        assertNull(list.get(6));
     }
 
     @Test
@@ -73,7 +73,7 @@ class LinkedListTest extends ArrayListTest {
 
         result = list.set(null,2);
         assertEquals("C",result);
-        assertEquals(null,list.get(2));
+        assertNull(list.get(2));
 
     }
 
